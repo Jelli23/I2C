@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+
+
+
+<body>
+
+
+
+<h1>Assignment 1 - Convertion</h1>
+
+
+
+
+<p>
+
+<a href="https://jelli23.github.io/I2C/"onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home w3-hover-opacity"></i> Back to Home Page</a>
+
+</p>
+
+
+
+
+
+<p>
+   <h2>Fahrenheit to Celsius</h2>
+</p>
+
+<p>
+
+<label for="fahrenheit">Fahrenheit</label> 
+
+<input id="fahrenheit" name="fahrenheit" type="number" placeholder="Fahrenheit"
+oninput="convertf(this.value)" onchange="convertf(this.value)">
+
+</p>
+
+ <p>
+   Celsius: <span id="outputCelsius"></span>
+ </p>
+
+
+
+ <p>
+   <h2>Celsius to Fahrenheit</h2>
+</p>
+
+<p>
+   <label for="celsius">Celsius</label> 
+
+   <input id="celsius" name="celsius" type="number" placeholder="Celsius"
+oninput="convertc(this.value)" onchange="convertc(this.value)">
+</p>
+
+<p>
+   Fahrenheit: <span id="outputFahrenheit"></span>
+ </p>
+
+
+
+ <p>
+   <h2>Meters to Feet</h2>
+</p>
+
+<p>
+   <label for="meters">Meters</label> 
+
+   <input id="meters" name="meters" type="number" placeholder="Meters"
+oninput="convertm(this.value)" onchange="convertm(this.value)">
+</p>
+
+<p>
+   Feet: <span id="outputFeet"></span>
+ </p>
+
+
+
+ <p>
+   <h2>Feet to Meters</h2>
+</p>
+
+<p>
+   <label for="feet">Feet</label> 
+
+   <input id="feet" name="feet" type="number" placeholder="Feet"
+oninput="convertft(this.value)" onchange="convertft(this.value)">
+</p>
+
+<p>
+   Meters: <span id="outputMeters"></span>
+</p>
+
+
+
+
+
+
+<script>
+
+function convertf(num)
+
+{
+   num = parseFloat (num);
+   document.getElementById("outputCelsius").innerHTML=(num-32)*5/9;
+}
+
+function convertc(num)
+
+{
+   num = parseFloat (num);
+   document.getElementById("outputFahrenheit").innerHTML=num * 9 / 5 + 32;
+}
+
+function convertm(num)
+
+{
+   num = parseFloat (num);
+   document.getElementById("outputFeet").innerHTML=num * 3.28084;
+}
+
+function convertft(num)
+
+{
+   num = parseFloat (num);
+   document.getElementById("outputMeters").innerHTML=num / 3.28084;
+}
+
+
+</script>
+
+</body>
+
+</html>
