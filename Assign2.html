@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Assignment 2 - Income tax Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+
+
+
+<body>
+
+
+
+<h1><b>Assignment 2 - Income tax Calculator</b></h1>
+
+
+
+
+<p>
+
+<a href="https://jelli23.github.io/I2C/"onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home w3-hover-opacity"></i> Back to Home Page</a>
+
+</p>
+
+
+
+
+
+<p>
+   <h2>Get Income Tax</h2>
+</p>
+
+<p>
+
+<label for="taxableIncome">Taxable Income</label> 
+
+<input id="taxableIncome" name="taxableIncome" type="number" placeholder="TaxableIncome"
+oninput="calculate(this.value)" onchange="calculate(this.value)">
+
+</p>
+
+ <p>
+   Income Tax: <span id="outputIncomeTax"></span>
+ </p>
+
+<script>
+
+function calculate(num)
+
+{
+    num = parseFloat (num);
+
+    console.log(num.toLocaleString("en-US"));
+
+    if (num <= 250000) {
+        document.getElementById("outputIncomeTax").innerHTML= 0.00;
+
+   } else if (num > 250000 && num < 400000) {  
+        document.getElementById("outputIncomeTax").innerHTML= (num-250000) * 0.2;
+
+   } else if (num >= 400000 && num < 800000) {
+        document.getElementById("outputIncomeTax").innerHTML= (num-400000) * 0.25 + 30000;
+    
+   } else if (num >= 800000 && num < 2000000) {
+        document.getElementById("outputIncomeTax").innerHTML= (num-800000) * 0.3 + 130000;
+
+   } else if (num >= 2000000 && num < 8000000) {
+        document.getElementById("outputIncomeTax").innerHTML= (num-2000000) * 0.32 + 490000;
+      
+    } else  {
+        document.getElementById("outputIncomeTax").innerHTML= (num-8000000) * 0.35 + 2410000;
+   
+   } 
+
+
+}
+
+
+
+</script>
+
+</body>
+
+</html>
