@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Assignment 4 - Simple Payroll</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+</style>
+</head>
+
+
+
+<body>
+
+<h1><b>Assignment 4 - Simple Payroll</b></h1>
+
+<p>
+
+<a href="https://jelli23.github.io/I2C/"onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-home w3-hover-opacity"></i> Back to Home Page</a>
+
+</p>
+
+<p>
+   <h2>Input needed Information</h2>
+</p>
+
+<p>
+    <label for="eName">Employee Name: </label>
+    <input type="text" id="eName"/>
+    <label for="dWorked">Days Worked: </label>
+    <input type="number" id="dWorked"/>
+    <label for="dRate">Daily Rate: </label>
+    <input type="number" id="dRate"/>
+    <label for="dAmount">Deduction Amount: </label>
+    <input type="number" id="dAmount"/>
+    <button onclick="addItem()">Add</button>
+</p>
+
+<p>
+    <label for="delete">Delete Employee no. :</label>
+    <input id="delete" name="delete" type="number" ></input>
+    <button onclick="deleteItem()">Delete</button>
+</p>
+
+<table id="TableContent">
+    <thead id="header">
+        <tr>
+        <th>No: </th>
+        <th>Employee Name: </th>
+        <th>Days Worked: </th>
+        <th>Daily Rate: </th>
+        <th>Gross Pay: </th>
+        <th>Deduction Amount: </th>
+        <th>Net Pay: </th>
+        </tr>
+    </thead>
+    <tbody id="content"></tbody>
+</table>
+
+<script>
+function addItem()
+{
+    var eName = document.getElementById("eName").value;
+    var dWorked = document.getElementById("dWorked").value;
+    var dRate = document.getElementById("dRate").value;
+    var dAmount = document.getElementById("dAmount").value;
+    let gPay = dWorked * dRate;
+    let nPay = gPay - dAmount;
+
+    var contentTable = document.getElementById("content");
+    var countRow = contentTable.rows.length;
+    var row = contentTable.insertRow();
+    var c1 = row.insertCell(0);
+    var c2 = row.insertCell(1);
+    var c3 = row.insertCell(2);
+    var c4 = row.insertCell(3);
+    var c5 = row.insertCell(4);
+    var c6 = row.insertCell(5);
+    var c7 = row.insertCell(6);
+
+    c1.innerHTML = countRow + 1;
+    c2.innerHTML = eName;
+    c3.innerHTML = dWorked;
+    c4.innerHTML = dRate;
+    c5.innerHTML = gPay;
+    c6.innerHTML = dAmount;
+    c7.innerHTML = nPay;
+    
+}
+
+function deleteItem()
+{
+        var toDelete;
+        var employeeNo = document.getElementById("delete").value;
+        var leng = document.getElementById("content").rows.length;
+        document.getElementById("content").deleteRow(employeeNo - 1);
+
+        toDelete = confirm("Delete Employee no. "+ employeeNo +"?");
+
+        var lineNo = employeeNo;
+        if (toDelete) {
+            while (lineNo <= leng){
+         var x = document.getElementById("content").rows[lineNo - 1].cells;
+         x[0].innerHTML = lineNo;
+         lineNo++; 
+        }
+        }
+}
+
+</script>
+
+</body>
+
+</html>
